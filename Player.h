@@ -5,6 +5,5 @@ class Player :
 {
 public:
     void Move(int dir, int dist);
-    void SetRect(SDL_FRect* rect);
 };
 

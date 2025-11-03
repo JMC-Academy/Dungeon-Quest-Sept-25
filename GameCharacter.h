@@ -12,7 +12,6 @@ public:
 	virtual void Collect(Pickup& pickup);
 	virtual bool CanMoveBetweenRooms();	//false by default
 	bool GetIsAlive();
-	SDL_FRect* GetRect();
 	SDL_Texture* Texture;
 	SDL_FRect Rect;
 

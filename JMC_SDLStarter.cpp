@@ -69,19 +69,19 @@ SDL_AppResult SDL_AppEvent(void* appstate, SDL_Event* event)
         // keyboard events    
         if (event->key.scancode == SDL_SCANCODE_W)
         {
-            Game->Hero->Rect.y -= TileHeight;
+            Game->Hero->Move(1, TileHeight);
         }
         if (event->key.scancode == SDL_SCANCODE_S)
         {
-            Game->Hero->Rect.y += TileHeight;
+            Game->Hero->Move(3, TileHeight);
         }
         if (event->key.scancode == SDL_SCANCODE_A)
         {
-            Game->Hero->Rect.x -= TileWidth;
+            Game->Hero->Move(4, TileWidth);
         }
         if (event->key.scancode == SDL_SCANCODE_D)
         {
-            Game->Hero->Rect.x += TileWidth;
+            Game->Hero->Move(2, TileWidth);
         }
 
     }
