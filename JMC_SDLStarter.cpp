@@ -9,21 +9,21 @@
 
 using namespace std;
 
-const int resX = 1027;
-const int resY = 768;
+const int resX = 1000;
+const int resY = 1000;
 const int GridSizeX = 10;
 const int GridSizeY = 10;
 const float TileSize = resY / GridSizeX;
 
 // the hero image
-static const char* heroPath = "Textures/Hero_no_sword.png";
+//static const char* heroPath = "Textures/Hero_no_sword.png";
 // hero texture
-static SDL_Texture* heroTexture;
+//static SDL_Texture* heroTexture;
 // global tile sizes
 static const int TileWidth = resX / 10;
 static const int TileHeight = resY / 10;
 //the hero rect
-static SDL_FRect heroRect{ 0, 0, TileWidth, TileHeight };
+//static SDL_FRect heroRect{ 0, 0, TileWidth, TileHeight };
 
 
  /* We will use this renderer to draw into this window every frame. */
@@ -53,6 +53,9 @@ SDL_AppResult SDL_AppInit(void** appstate, int argc, char* argv[])
 
     Game = new DungeonGame(TileSize, TileSize);
     Game->LoadTextures(renderer);
+
+    const char* room = "Data/Rooms/Room02.bmp";
+    Game->LoadRoom(room);
 
     return SDL_APP_CONTINUE;  /* carry on with the program! */
 }
@@ -102,6 +105,16 @@ SDL_AppResult SDL_AppIterate(void* appstate)
     SDL_RenderClear(renderer);  /* start with a blank canvas. */
 
     // Your Update code goes here.
+    
+    //Draw the tiles/grid
+    for (int x = 0; x < GridSizeX; x++) 
+    {
+        for (int y = 0; y < GridSizeY; y++)
+        {
+            SDL_RenderTexture(renderer, Game->Tiles[x][y].Texture, NULL, &Game->Tiles[x][y].Rect);
+        }
+    }
+    //Render the Hero
     SDL_RenderTexture(renderer, Game->Hero->Texture, NULL, &Game->Hero->Rect);
 
     SDL_RenderPresent(renderer);  /* put it all on the screen! */
