@@ -1,8 +1,9 @@
 #pragma once
 #include "GameCharacter.h"
+#include "Enums.h"
 class Player : public GameCharacter
 {
 public:
-    void Move(int dir, int dist);
+    void Move(Direction dir, int dist);
 };
 

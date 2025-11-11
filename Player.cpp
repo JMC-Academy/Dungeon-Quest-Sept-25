@@ -1,13 +1,13 @@
 #include "Player.h"
 
-void Player::Move(int dir, int dist)
+void Player::Move(Direction dir, int dist)
 {
-	if (dir == 1)
+	if (dir == Direction::North)
 		Rect.y -= dist;
-	if (dir == 2)
+	if (dir == Direction::East)
 		Rect.x += dist;
-	if (dir == 3)
+	if (dir == Direction::South)
 		Rect.y += dist;
-	if (dir == 4)
+	if (dir == Direction::West)
 		Rect.x -= dist;
 }

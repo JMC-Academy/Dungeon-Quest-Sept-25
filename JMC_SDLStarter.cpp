@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Goblin.h"
 #include "DungeonGame.h"
+#include "Enums.h"
 
 using namespace std;
 
@@ -15,15 +16,9 @@ const int GridSizeX = 10;
 const int GridSizeY = 10;
 const float TileSize = resY / GridSizeX;
 
-// the hero image
-//static const char* heroPath = "Textures/Hero_no_sword.png";
-// hero texture
-//static SDL_Texture* heroTexture;
 // global tile sizes
 static const int TileWidth = resX / 10;
 static const int TileHeight = resY / 10;
-//the hero rect
-//static SDL_FRect heroRect{ 0, 0, TileWidth, TileHeight };
 
 
  /* We will use this renderer to draw into this window every frame. */
@@ -54,7 +49,7 @@ SDL_AppResult SDL_AppInit(void** appstate, int argc, char* argv[])
     Game = new DungeonGame(TileSize, TileSize);
     Game->LoadTextures(renderer);
 
-    const char* room = "Data/Rooms/Room02.bmp";
+    const char* room = "Data/Rooms/Room03.bmp";
     Game->LoadRoom(room);
 
     return SDL_APP_CONTINUE;  /* carry on with the program! */
@@ -72,19 +67,19 @@ SDL_AppResult SDL_AppEvent(void* appstate, SDL_Event* event)
         // keyboard events    
         if (event->key.scancode == SDL_SCANCODE_W)
         {
-            Game->Hero->Move(1, TileHeight);
+            Game->Hero->Move(Direction::North, TileHeight);
         }
         if (event->key.scancode == SDL_SCANCODE_S)
         {
-            Game->Hero->Move(3, TileHeight);
+            Game->Hero->Move(Direction::South, TileHeight);
         }
         if (event->key.scancode == SDL_SCANCODE_A)
         {
-            Game->Hero->Move(4, TileWidth);
+            Game->Hero->Move(Direction::West, TileWidth);
         }
         if (event->key.scancode == SDL_SCANCODE_D)
         {
-            Game->Hero->Move(2, TileWidth);
+            Game->Hero->Move(Direction::East, TileWidth);
         }
 
     }

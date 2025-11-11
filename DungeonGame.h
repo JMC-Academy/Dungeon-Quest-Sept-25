@@ -12,8 +12,10 @@ const static std::string path_Carpet[] = {
 										"Textures/Tile_carpet_blood_1.bmp",
 										"Textures/Tile_carpet_bones.bmp"
 };
-enum Direction{North, East, South, West};
+
 const static int RoomSize = 10;
+const int gridWidth = 10;
+const int gridHeight = 10;
 
 class DungeonGame
 {
@@ -22,6 +24,7 @@ public:
 	~DungeonGame();
 	void LoadTextures(SDL_Renderer* renderer);
 	void LoadRoom(const char* file);
+	void InitGrid();
 	Player* Hero;
 	Tile Tiles[RoomSize][RoomSize];
 	SDL_Texture* CarpetTextures[3];
@@ -30,4 +33,3 @@ private:
 	float tileSizeX;
 	float tileSizeY;
 };
-

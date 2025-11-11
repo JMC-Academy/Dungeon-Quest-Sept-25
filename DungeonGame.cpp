@@ -54,3 +54,7 @@ void DungeonGame::LoadRoom(const char* file)
 	}
 
 }
+
+void DungeonGame::InitGrid()
+{
+}
