@@ -67,19 +67,19 @@ SDL_AppResult SDL_AppEvent(void* appstate, SDL_Event* event)
         // keyboard events    
         if (event->key.scancode == SDL_SCANCODE_W)
         {
-            Game->Hero->Move(Direction::North, TileHeight);
+			Game->HandleMoveDirection(*Game->Hero, Direction::North);
         }
         if (event->key.scancode == SDL_SCANCODE_S)
         {
-            Game->Hero->Move(Direction::South, TileHeight);
+            Game->HandleMoveDirection(*Game->Hero, Direction::South);
         }
         if (event->key.scancode == SDL_SCANCODE_A)
         {
-            Game->Hero->Move(Direction::West, TileWidth);
+            Game->HandleMoveDirection(*Game->Hero, Direction::West);
         }
         if (event->key.scancode == SDL_SCANCODE_D)
         {
-            Game->Hero->Move(Direction::East, TileWidth);
+            Game->HandleMoveDirection(*Game->Hero, Direction::East);
         }
 
     }
